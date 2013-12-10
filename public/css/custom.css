@@ -1,0 +1,7 @@
+.navbar>.container .navbar-brand {
+	margin-left: 35px;
+}
+
+a.navbar-brand {
+	width: 20%;
+}

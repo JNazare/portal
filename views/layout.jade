@@ -9,8 +9,10 @@ head
     link(href='/css/style.css', rel='stylesheet')
     link(href='/css/retina.min.css', rel='stylesheet')
     link(href='/css/print.css', rel='stylesheet', type='text/css', media='print')
+    link(href='/css/custom.css', rel='stylesheet')
     script(src='/js/marked.js')
     script(src='/js/editor.js')
+    script(src='/js/custom.js')
   body
     header.navbar
       .container
@@ -21,64 +23,87 @@ head
         a#main-menu-toggle.hidden-xs.open
           i.fa.fa-bars
         a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='index.html')
-          span SI BOS
+          span Startup Institute Chicago
         .nav-no-collapse.header-nav
           ul.nav.navbar-nav.pull-right
             li.dropdown
-              a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
-                .avatar
-                  img(src='/img/avatar.jpg', alt='Avatar')
-                .user
-                  span.hello Welcome!
-                  span.name Insert Username
-              ul.dropdown-menu
-                li
-                  a(href='index.html#')
-                    i.fa.fa-cog
-                    | Settings
-                li
-                  a(href='page-login.html')
-                    i.fa.fa-off
-                    | Logout
+              if(logged_in == true)
+                a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
+                  .avatar
+                    img(src='/img/avatar.jpg', alt='Avatar')
+                  .user
+                    span.hello Welcome!
+                    span.name Insert Username
+                ul.dropdown-menu
+                  li
+                    a(href='index.html#')
+                      i.fa.fa-cog
+                      | Settings
+                  li
+                    a(href='page-login.html')
+                      i.fa.fa-off
+                      | Logout
+              else
+                a.btn.account(href='/login')
+                  .user
+                    span.name Login &nbsp;&nbsp;
+
     .container
       .row
-        #sidebar-left.col-lg-2.col-sm-1
-          if(folders)
-            for folder in folders
-              .sidebar-nav.nav-collapse.collapse.navbar-collapse
-                ul.nav.main-menu
-                  li
-                    if(logged_in == true)
-                      a(href='/home')
-                        i.fa.fa-bar-chart-o
-                        span.hidden-sm.text HOME
-                    else
-                      a(href='/')
-                        i.fa.fa-bar-chart-o
-                        span.hidden-sm.text HOME
-                  li
-                    a.dropmenu(href='index.html#')
-                      i.fa.fa-folder-open
-                      span.hidden-sm.text #{folder}
-                      span.chevron.closed
-                    ul
-                      for file in files
-                        li
-                          a(href=file.url)
-                            i.fa.fa-folder
-                            span.hidden-sm.text #{file.name}
-          a#main-menu-min.full.visible-md.visible-lg(href='/#')
-            i.fa.fa-angle-double-left
-        #content.col-lg-10.col-sm-11
-          .row
-            .col-sm-12.col-md-12
-              ol.breadcrumb
-                li
-                  a(href='index.html#') SI Boston
-                li.active Home
-              .row
-                .col-sm-12.col-md-12
-                  block content
+        if(logged_in==false)
+          #sidebar-left.col-lg-2.col-sm-1.minified
+        else
+          #sidebar-left.col-lg-2.col-sm-1
+            if(folders)
+              for folder in folders
+                .sidebar-nav.nav-collapse.collapse.navbar-collapse
+                  ul.nav.main-menu
+                    li
+                      if(logged_in == true)
+                        a(href='/home')
+                          i.fa.fa-bar-chart-o
+                          span.hidden-sm.text HOME
+                      else
+                        a(href='/')
+                          i.fa.fa-bar-chart-o
+                          span.hidden-sm.text HOME
+                    li
+                      a.dropmenu(href='index.html#')
+                        i.fa.fa-folder-open
+                        span.hidden-sm.text #{folder}
+                        span.chevron.closed
+                      ul
+                        for file in files
+                          li
+                            a(href=file.url)
+                              i.fa.fa-folder
+                              span.hidden-sm.text #{file.name}
+            a#main-menu-min.full.visible-md.visible-lg(href='/home#')
+              i.fa.fa-angle-double-left
+        if(logged_in==false)
+          #content.col-lg-10.col-sm-11.sidebar-minified
+            .row
+              .col-sm-12.col-md-12
+                ol.breadcrumb
+                  if(logged_in == true)
+                    li
+                      a(href='/home') Chicago
+                    li.active Home
+                .row
+                  .col-sm-12.col-md-12
+                    block content
+        else
+          #content.col-lg-10.col-sm-11.sidebar
+            .row
+              .col-sm-12.col-md-12
+                ol.breadcrumb
+                  if(logged_in == true)
+                    li
+                      a(href='/home') Chicago
+                    li.active Home
+                .row
+                  .col-sm-12.col-md-12
+                    block content
     .clearfix
     script(src='/js/jquery-2.0.3.min.js')
     script(src='/js/jquery-migrate-1.2.1.min.js')
