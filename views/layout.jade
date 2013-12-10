@@ -22,8 +22,12 @@ head
           span.icon-bar
         a#main-menu-toggle.hidden-xs.open
           i.fa.fa-bars
-        a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='index.html')
-          span Startup Institute Chicago
+        if(logged_in==true)
+          a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/home')
+            span Startup Institute Chicago
+        else
+          a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/')
+            span Startup Institute Chicago
         .nav-no-collapse.header-nav
           ul.nav.navbar-nav.pull-right
             li.dropdown
@@ -68,7 +72,7 @@ head
                           i.fa.fa-bar-chart-o
                           span.hidden-sm.text HOME
                     li
-                      a.dropmenu(href='index.html#')
+                      a.dropmenu(href='/home#')
                         i.fa.fa-folder-open
                         span.hidden-sm.text #{folder}
                         span.chevron.closed
