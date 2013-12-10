@@ -1,0 +1,129 @@
+!!! 5
+html(lang='en')
+head
+    meta(charset='utf-8')
+    title Startup Institute Curriculum
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/editor.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
+    link(href='/css/retina.min.css', rel='stylesheet')
+    link(href='/css/print.css', rel='stylesheet', type='text/css', media='print')
+    script(src='/js/marked.js')
+    script(src='/js/editor.js')
+  body
+    header.navbar
+      .container
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-nav.nav-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a#main-menu-toggle.hidden-xs.open
+          i.fa.fa-bars
+        a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='index.html')
+          span SI BOS
+        .nav-no-collapse.header-nav
+          ul.nav.navbar-nav.pull-right
+            li.dropdown
+              a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
+                .avatar
+                  img(src='/img/avatar.jpg', alt='Avatar')
+                .user
+                  span.hello Welcome!
+                  span.name Insert Username
+              ul.dropdown-menu
+                li
+                  a(href='index.html#')
+                    i.fa.fa-cog
+                    | Settings
+                li
+                  a(href='page-login.html')
+                    i.fa.fa-off
+                    | Logout
+    .container
+      .row
+        #sidebar-left.col-lg-2.col-sm-1
+          .sidebar-nav.nav-collapse.collapse.navbar-collapse
+            ul.nav.main-menu
+              li
+                a(href='/')
+                  i.fa.fa-bar-chart-o
+                  span.hidden-sm.text Home
+              li
+                a.dropmenu(href='index.html#')
+                  i.fa.fa-folder-open
+                  span.hidden-sm.text Product Design
+                  span.chevron.closed
+                ul
+                  li
+                    a(href='2nd-level.html')
+                      i.fa.fa-folder
+                      span.hidden-sm.text Lab 0
+              li
+                a.dropmenu(href='index.html#')
+                  i.fa.fa-folder-open
+                  span.hidden-sm.text Development
+                  span.chevron.closed
+                ul
+                  li
+                    a(href='2nd-level.html')
+                      i.fa.fa-folder
+                      span.hidden-sm.text Lab 0
+              li
+                a.dropmenu(href='index.html#')
+                  i.fa.fa-folder-open
+                  span.hidden-sm.text Marketing
+                  span.chevron.closed
+                ul
+                  li
+                    a(href='2nd-level.html')
+                      i.fa.fa-folder
+                      span.hidden-sm.text Lab 0
+              li
+                a.dropmenu(href='index.html#')
+                  i.fa.fa-folder-open
+                  span.hidden-sm.text Sales
+                  span.chevron.closed
+                ul
+                  li
+                    a(href='2nd-level.html')
+                      i.fa.fa-folder
+                      span.hidden-sm.text Lab 0
+          a#main-menu-min.full.visible-md.visible-lg(href='/#')
+            i.fa.fa-angle-double-left
+        #content.col-lg-10.col-sm-11
+          .row
+            .col-sm-12.col-md-12
+              ol.breadcrumb
+                li
+                  a(href='index.html#') SI Boston
+                li.active Home
+              .row
+                .col-sm-12.col-md-12
+                  block content
+    .clearfix
+    script(src='/js/jquery-2.0.3.min.js')
+    script(src='/js/jquery-migrate-1.2.1.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/js/jquery-ui-1.10.3.custom.min.js')
+    script(src='/js/jquery.ui.touch-punch.min.js')
+    script(src='/js/jquery.sparkline.min.js')
+    script(src='/js/fullcalendar.min.js')
+    script(src='/js/jquery.flot.min.js')
+    script(src='/js/jquery.flot.pie.min.js')
+    script(src='/js/jquery.flot.stack.min.js')
+    script(src='/js/jquery.flot.resize.min.js')
+    script(src='/js/jquery.flot.time.min.js')
+    script(src='/js/jquery.autosize.min.js')
+    script(src='/js/jquery.placeholder.min.js')
+    script(src='/js/moment.min.js')
+    script(src='/js/daterangepicker.min.js')
+    script(src='/js/jquery.easy-pie-chart.min.js')
+    script(src='/js/jquery.dataTables.min.js')
+    script(src='/js/dataTables.bootstrap.min.js')
+    script(src='/js/custom.min.js')
+    script(src='/js/core.min.js')
+    script(src='/js/pages/index.js')
+    script.
+      var editor = new Editor();
+      editor.render();
