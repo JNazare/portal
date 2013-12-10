@@ -1,4 +1,14 @@
 extends layout
 
 block content
-  textarea
+	if(contents)
+		textarea
+	if(logged_in == false)
+			center
+				h1 
+					| Welcome!
+				p
+				| This is the Startup Institute curriculum portal
+				br
+				a(href="/login")
+					button.btn.btn-primary

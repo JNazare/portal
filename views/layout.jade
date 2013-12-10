@@ -43,52 +43,30 @@ head
     .container
       .row
         #sidebar-left.col-lg-2.col-sm-1
-          .sidebar-nav.nav-collapse.collapse.navbar-collapse
-            ul.nav.main-menu
-              li
-                a(href='/')
-                  i.fa.fa-bar-chart-o
-                  span.hidden-sm.text Home
-              li
-                a.dropmenu(href='index.html#')
-                  i.fa.fa-folder-open
-                  span.hidden-sm.text Product Design
-                  span.chevron.closed
-                ul
+          if(folders)
+            for folder in folders
+              .sidebar-nav.nav-collapse.collapse.navbar-collapse
+                ul.nav.main-menu
                   li
-                    a(href='2nd-level.html')
-                      i.fa.fa-folder
-                      span.hidden-sm.text Lab 0
-              li
-                a.dropmenu(href='index.html#')
-                  i.fa.fa-folder-open
-                  span.hidden-sm.text Development
-                  span.chevron.closed
-                ul
+                    if(logged_in == true)
+                      a(href='/home')
+                        i.fa.fa-bar-chart-o
+                        span.hidden-sm.text HOME
+                    else
+                      a(href='/')
+                        i.fa.fa-bar-chart-o
+                        span.hidden-sm.text HOME
                   li
-                    a(href='2nd-level.html')
-                      i.fa.fa-folder
-                      span.hidden-sm.text Lab 0
-              li
-                a.dropmenu(href='index.html#')
-                  i.fa.fa-folder-open
-                  span.hidden-sm.text Marketing
-                  span.chevron.closed
-                ul
-                  li
-                    a(href='2nd-level.html')
-                      i.fa.fa-folder
-                      span.hidden-sm.text Lab 0
-              li
-                a.dropmenu(href='index.html#')
-                  i.fa.fa-folder-open
-                  span.hidden-sm.text Sales
-                  span.chevron.closed
-                ul
-                  li
-                    a(href='2nd-level.html')
-                      i.fa.fa-folder
-                      span.hidden-sm.text Lab 0
+                    a.dropmenu(href='index.html#')
+                      i.fa.fa-folder-open
+                      span.hidden-sm.text #{folder}
+                      span.chevron.closed
+                    ul
+                      for file in files
+                        li
+                          a(href=file.url)
+                            i.fa.fa-folder
+                            span.hidden-sm.text #{file.name}
           a#main-menu-min.full.visible-md.visible-lg(href='/#')
             i.fa.fa-angle-double-left
         #content.col-lg-10.col-sm-11

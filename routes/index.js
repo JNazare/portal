@@ -1,8 +1,6 @@
-
-/*
- * GET home page.
- */
+var helpers = require('./helpers.js');
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+	req.logged_in = false;
+	res.render('index', {logged_in: req.logged_in, FILEPICKER_KEY: process.env.FILEPICKER_KEY});
 };
