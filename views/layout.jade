@@ -31,17 +31,19 @@ head
               if(logged_in == true)
                 a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
                   .avatar
-                    img(src='/img/avatar.jpg', alt='Avatar')
+                    if(user)
+                      img(src=user.pic, alt='Avatar')
                   .user
-                    span.hello Welcome!
-                    span.name Insert Username
+                    if(user)
+                      span.hello Welcome!
+                      span.name #{user.name}
                 ul.dropdown-menu
                   li
                     a(href='index.html#')
                       i.fa.fa-cog
                       | Settings
                   li
-                    a(href='page-login.html')
+                    a(href='/logout')
                       i.fa.fa-off
                       | Logout
               else

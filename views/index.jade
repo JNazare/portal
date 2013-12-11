@@ -5,6 +5,7 @@ block content
 		.editor-wrapper
 				textarea#labcontent
 					| #{contents}
+				#saved-alert.alert.alert-success(style="display:none") All contents saved.
 				input(type='hidden', id='contentinput', name='contentinput', value=contents)
 				input(type='hidden', name='blob_to_save', id='blob_to_save' value='#{blob}')
 				input(type='hidden', name='url_to_save', id='url_to_save' value='#{saveurl}')

@@ -39,7 +39,7 @@ app.post('/product/:file/save', product.savelab);
 app.get('/intro', intro.show);
 app.get('/intro/:file', intro.showlab);
 app.post('/intro/:file/save', intro.savelab);
-app.get('/new', helpers.newlab)
+app.get('/test', helpers.get_user);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
