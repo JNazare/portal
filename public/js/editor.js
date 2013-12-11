@@ -6976,6 +6976,18 @@ function redo(editor) {
   cm.focus();
 }
 
+// Save content
+function saveContent(editor)  {
+  var blob = $('#blob_to_save').val();
+  var url = $('#url_to_save').val();
+  var cm = editor.codemirror;
+  var content = cm.getValue();
+  $.post(url, {content_to_save: content, blob_to_save: blob}, function(response){
+    console.log("Saved");
+  });
+};
+
+
 /**
  * Preview action.
  */
@@ -7054,6 +7066,10 @@ function _toggleLine(cm, name) {
 };
 
 var toolbar = [
+  {name: 'disk', action: saveContent}, 
+  {name: 'preview', action: togglePreview}, 
+  '|',
+
   {name: 'bold', action: toggleBold},
   {name: 'italic', action: toggleItalic},
   '|',
@@ -7067,8 +7083,7 @@ var toolbar = [
   {name: 'image', action: drawImage},
   '|',
 
-  {name: 'info', action: 'http://lab.lepture.com/editor/markdown'},
-  {name: 'preview', action: togglePreview}
+  {name: 'info', action: 'http://lab.lepture.com/editor/markdown'}
   // {name: 'fullscreen', action: toggleFullScreen}
 ]
 

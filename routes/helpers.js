@@ -96,7 +96,7 @@ exports.save_file = function(req, callback){
 	var sha = req.body.blob_to_save;
 
 	var options = {
-		"headers" : {"User-Agent": "Curriculum Github"},
+		"headers" : {"User-Agent": "Revamped Curriculum Github"},
 		"method" : "PUT",
 		"url" : full_path,
 		"json" : {
