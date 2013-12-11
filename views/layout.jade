@@ -10,9 +10,6 @@ head
     link(href='/css/retina.min.css', rel='stylesheet')
     link(href='/css/print.css', rel='stylesheet', type='text/css', media='print')
     link(href='/css/custom.css', rel='stylesheet')
-    script(src='/js/marked.js')
-    script(src='/js/editor.js')
-    script(src='/js/custom.js')
   body
     header.navbar
       .container
@@ -131,6 +128,8 @@ head
     script(src='/js/custom.min.js')
     script(src='/js/core.min.js')
     script(src='/js/pages/index.js')
+    script(src='/js/editor.js')
+    script(src='/js/custom.js')
     script.
       var editor = new Editor();
       editor.render();
