@@ -7244,6 +7244,7 @@ Editor.prototype.createToolbar = function(items) {
 
   var cmWrapper = cm.getWrapperElement();
   cmWrapper.parentNode.insertBefore(bar, cmWrapper);
+  togglePreview(editor);
   return bar;
 };
 
