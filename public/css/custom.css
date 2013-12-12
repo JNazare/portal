@@ -10,3 +10,7 @@ a.navbar-brand {
 	max-width: 680px;
 	padding: 10px;
 }
+
+.editor-preview{
+	background-color: #f3f3f3;
+}
