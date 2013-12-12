@@ -103,7 +103,10 @@ head
                   if(logged_in == true)
                     li
                       a(href='/home') Chicago
-                    li.active Home
+                    if(current_filename)
+                      li.active #{current_filename}
+                    else
+                      li.active Home
                 .row
                   .col-sm-12.col-md-12
                     block content

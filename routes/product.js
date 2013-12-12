@@ -22,7 +22,8 @@ exports.showlab = function(req, res){
 					user_info: req.session.user_info,
 					blob: result.blob, 
 					saveurl: result.saveurl,
-					FILEPICKER_KEY: process.env.FILEPICKER_KEY
+					FILEPICKER_KEY: process.env.FILEPICKER_KEY,
+					current_filename: result.current_filename
 				});
 			});
 		})

@@ -85,7 +85,7 @@ exports.get_file = function(req, callback){
 			request(options, function (error, reply, metadata){
 				console.log(metadata);
 				var blob = JSON.parse(metadata).sha; 
-				callback({"contents": contents, "blob": blob, "saveurl": "/"+'product'+"/"+req.params.file+"/save"});
+				callback({"contents": contents, "blob": blob, current_filename: req.params.file, "saveurl": "/"+'product'+"/"+req.params.file+"/save"});
 			})
 		}
 	});
