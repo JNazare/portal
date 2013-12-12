@@ -4,16 +4,15 @@ var async = require( 'async' );
 
 exports.get_user = function(req, callback){
 	var options = {
-		headers : {"User-Agent": "Revamped Curriculum Github"},
-		url : 'https://api.github.com/user',
+		headers : {"User-Agent": "Curriculum Github"},
+		url : 'https://api.github.com/user?'+req.session.token,
 		method: 'GET'
 	};
 	request(options, function (error, response, user_info) {
 		if (error) { console.log(error);}
 		if (!error && response.statusCode == 200) {
-			console.log(user_info);
-			res.send(user_info);
-			callback({"pic" : user_info.avatar_url, "name": user_info.name});
+			user_info = JSON.parse(user_info);
+			callback({"pic": user_info.avatar_url, "name":user_info.name});
 		}
 	})
 }

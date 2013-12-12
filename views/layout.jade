@@ -31,12 +31,12 @@ head
               if(logged_in == true)
                 a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
                   .avatar
-                    if(user)
-                      img(src=user.pic, alt='Avatar')
+                    if(user_info)
+                      img(src=user_info.pic, alt='Avatar')
                   .user
-                    if(user)
-                      span.hello Welcome!
-                      span.name #{user.name}
+                    span.hello Welcome!
+                    if(user_info)
+                      span.name #{user_info.name}
                 ul.dropdown-menu
                   li
                     a(href='index.html#')

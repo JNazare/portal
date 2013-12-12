@@ -26,12 +26,17 @@ exports.get_oauth_token = function(req, res){
 	    	req.session.token = token;
 	    	helpers.get_folder_structure(req, function(folders){ 
 	    		helpers.get_product_structure(req, function(files){
-	    			res.render('index', {
-	    				folders: folders, 
-	    				files: files, 
-	    				logged_in: req.logged_in, 
-	    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
-	    			}); 
+	    			helpers.get_user(req, function(user_info){
+	    				req.user_info = user_info;
+	    				console.log(user_info);
+	    				res.render('index', {
+		    				folders: folders, 
+		    				files: files, 
+		    				logged_in: req.logged_in,
+		    				user_info: user_info, 
+		    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
+		    			}); 
+	    			});
 	    		})
 	    	});
 	  	}

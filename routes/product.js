@@ -12,7 +12,7 @@ exports.showlab = function(req, res){
 	helpers.get_folder_structure(req, function(folders){ 
 		helpers.get_product_structure(req, function(files){
 			helpers.get_file(req, function(result){ 
-				console.log("HEREEE")
+				console.log("HEREEE");
 				res.render('index', {
 					logged_in: true,
 					root: './public', 
