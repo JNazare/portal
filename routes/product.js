@@ -19,6 +19,7 @@ exports.showlab = function(req, res){
 					contents: result.contents, 
 					folders: folders,
 					files: files, 
+					user_info: req.session.user_info,
 					blob: result.blob, 
 					saveurl: result.saveurl,
 					FILEPICKER_KEY: process.env.FILEPICKER_KEY
