@@ -1,4 +1,3 @@
-* Needs to start on preview
 * Filepicker needs to go into image upload
 * Our icons need to be input
 ???? * Only specific permissions
@@ -9,3 +8,4 @@ DONE * Command S = save
 DONE * Nav (/home) needs to work
 DONE * Save needs user response (green saved alert) 
 DONE * Breadcrumbs need to be set up
+DONE * Needs to start on preview
