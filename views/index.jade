@@ -3,7 +3,7 @@ extends layout
 block content
 	if(contents)
 		.editor-wrapper
-				textarea#labcontent
+				textarea(style="display:none")#labcontent
 					| #{contents}
 				#saved-alert.alert.alert-success(style="display:none") All contents saved.
 				input(type='hidden', id='contentinput', name='contentinput', value=contents)
