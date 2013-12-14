@@ -130,8 +130,13 @@ head
     script(src='/js/core.min.js')
     script(src='/js/pages/index.js')
     script(src='/js/marked.js')
+    script(type='text/javascript', src='http://api.filepicker.io/v1/filepicker.js')
     script(src='/js/editor.js')
     script(src='/js/custom.js')
     script.
       var editor = new Editor();
       editor.render();
+    script.
+      console.log($('#filepicker_key').val());
+      filepicker.setKey( $('#filepicker_key').val() );
+      // $('.collapse').collapse()

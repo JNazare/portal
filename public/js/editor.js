@@ -6953,7 +6953,13 @@ function drawLink(editor) {
 function drawImage(editor) {
   var cm = editor.codemirror;
   var stat = getState(cm);
-  _replaceSelection(cm, stat.image, '![', '](http://)');
+  filepicker.pickAndStore({mimetype:"image/*"},
+    {location:"S3"}, function(InkBlobs){
+      var url = JSON.stringify(InkBlobs[0].url);
+      var urlslice = url.slice(1, (url.length-1));
+      console.log(urlslice);
+      _replaceSelection(cm, stat.image, '![', ']('+urlslice+')');
+    });
 }
 
 
@@ -6987,6 +6993,11 @@ function saveContent(editor)  {
     console.log("Saved");
     location.reload();
   });
+};
+
+function pasteImage(editor)  {
+   // var current = $('.icon-paste').replaceWith("<div class='dropdown'><a class='icon-paste' data-toggle='dropdown'></a><ul class='dropdown-menu'><li>hi</li></ul></div>")
+//   console.log(current);
 };
 
 $(window).keypress(function(event) {
@@ -7108,7 +7119,7 @@ function Editor(options) {
 
   options.toolbar = options.toolbar || Editor.toolbar;
   // you can customize toolbar with object
-  // [{name: 'bold', shortcut: 'Ctrl-B', className: 'icon-bold'}]
+  [{name: 'bold', shortcut: 'Ctrl-B', className: 'icon-bold'}]
 
   if (!options.hasOwnProperty('status')) {
     options.status = ['lines', 'words', 'cursor'];
@@ -7244,6 +7255,8 @@ Editor.prototype.createToolbar = function(items) {
 
   var cmWrapper = cm.getWrapperElement();
   cmWrapper.parentNode.insertBefore(bar, cmWrapper);
+  $('.icon-paste').replaceWith("<div class='dropdown'><a class='icon-paste' data-toggle='dropdown'></a><ul class='dropdown-menu'><li>hi</li></ul></div>")
+  
   togglePreview(editor);
   return bar;
 };

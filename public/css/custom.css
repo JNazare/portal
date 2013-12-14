@@ -14,3 +14,10 @@ a.navbar-brand {
 .editor-preview{
 	background-color: #f3f3f3;
 }
+
+#sidebar-right{
+	background-color: #dbdee0;
+}
+#si_icon{
+	padding:5px;
+}

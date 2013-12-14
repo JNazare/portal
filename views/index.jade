@@ -2,14 +2,52 @@ extends layout
 
 block content
 	if(contents)
-		.col-md-11
+		.col-md-12
 			.editor-wrapper
+					#accordion.panel-group
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title
+									a(data-toggle='collapse', data-parent='#accordion', href='#collapseOne')
+										| Curriculum Assets <span class="caret"></span>
+							#collapseOne.panel-collapse.collapse.in
+								.panel-body
+									img(src="/images/collaborate.png")#si_icon
+									img(src="/images/create.png")#si_icon
+									img(src="/images/deliver.png")#si_icon
+									img(src="/images/discover.png")#si_icon
+									img(src="/images/download.png")#si_icon
+									img(src="/images/feedback.png")#si_icon
+									img(src="/images/install.png")#si_icon
+									img(src="/images/read.png")#si_icon
+									img(src="/images/reflect.png")#si_icon
+									img(src="/images/spiral.png")#si_icon
+									img(src="/images/stretch.png")#si_icon
+									img(src="/images/watch.png")#si_icon
+					#saved-alert.alert.alert-success(style="display:none") All contents saved.
 					textarea(style="display:none")#labcontent
 						| #{contents}
-					#saved-alert.alert.alert-success(style="display:none") All contents saved.
-					input(type='hidden', id='contentinput', name='contentinput', value=contents)
-					input(type='hidden', name='blob_to_save', id='blob_to_save' value='#{blob}')
-					input(type='hidden', name='url_to_save', id='url_to_save' value='#{saveurl}')
+	input(type='hidden', id='contentinput', name='contentinput', value=contents)
+	input(type='hidden', name='blob_to_save', id='blob_to_save' value='#{blob}')
+	input(type='hidden', name='url_to_save', id='url_to_save' value='#{saveurl}')
+	input(type='hidden', name='filepicker_key', id='filepicker_key' value='#{FILEPICKER_KEY}')
+		//- .col-md-2(style="background-color: #e9ebec; padding: 15px; border: 1px solid #dbdee0")
+		//- 	center
+		//- 		| Curriculum Icons
+		//- 		| (Insert These)
+		//- 		br
+		//- 		br
+		//- 		img(src='/images/collaborate.png')
+		//- 		img(src='/images/create.png')
+		//- 		img(src='/images/deliver.png')
+		//- 		img(src='/images/download.png')
+		//- 		img(src='/images/feedback.png')
+		//- 		img(src='/images/install.png')
+		//- 		img(src='/images/read.png')
+		//- 		img(src='/images/reflect.png')
+		//- 		img(src='/images/spiral.png')
+		//- 		img(src='/images/stretch.png')
+		//- 		img(src='/images/watch.png')
 	if(logged_in == false)
 			center
 				h1 
@@ -23,5 +61,5 @@ block content
 				br
 				p
 				| Quisque eu quam quis metus blandit suscipit ac sit amet odio. Proin placerat, lectus ac commodo sodales, metus orci facilisis sem, eu lobortis metus purus sit amet urna. In id pharetra est. Curabitur ullamcorper diam velit, in tincidunt erat fringilla quis. Ut volutpat nisl ac eros pharetra pulvinar. Praesent in augue accumsan est sagittis pretium. Phasellus eget est ac enim luctus convallis. Duis sodales, turpis nec tincidunt porta, diam erat hendrerit ligula, eleifend condimentum nisl enim mattis neque.
-	script.
-		console.log(contentinput);
+
+		// $('#pasteIcon').tooltip('toggle');

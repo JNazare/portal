@@ -56,3 +56,9 @@
 .icon-info:before {
 	content: "\e60a";
 }
+.icon-paste:before {
+	content: "\e60b";
+}
+.icon-file-css:before {
+	content: "\e60c";
+}
