@@ -1,4 +1,3 @@
-* Filepicker needs to go into image upload
 * Our icons need to be input
 ???? * Only specific permissions
 DONE * Username and profile need to be integrated
@@ -9,6 +8,18 @@ DONE * Nav (/home) needs to work
 DONE * Save needs user response (green saved alert) 
 DONE * Breadcrumbs need to be set up
 DONE * Needs to start on preview
+DONE Filepicker needs to go into image upload
 
-160 Maple St
-needam ma 02492
+Icons:
+![Install](https://www.filepicker.io/api/file/fEu67NgKThug4TJeqlSa)
+![Spiral](https://www.filepicker.io/api/file/HQVK75UQPSVZJBli80XQ)
+![Discover](https://www.filepicker.io/api/file/7gOdGZkRGyv2W7efv8B2)
+![Create](https://www.filepicker.io/api/file/dhIepG9Sl26LUlHQCwup)
+![Watch](https://www.filepicker.io/api/file/gmV0Nl9AT0KChhlsmvUZ)
+![Read](https://www.filepicker.io/api/file/KYO1WQlQRugDlLxIWNmJ)
+![Collaborate](https://www.filepicker.io/api/file/iSsZEY8WQ0OCzM1qIDqZ)
+![Stretch](https://www.filepicker.io/api/file/egzwlLbwR56hNDUeTnxX)
+![Download](https://www.filepicker.io/api/file/sxeHPZjATH2Mhga3v05M)
+![Feedback](https://www.filepicker.io/api/file/7RAt9jr3ReuOsJ9Dg3st)
+![Reflect](https://www.filepicker.io/api/file/4B9JHJBRQUHTzqwnFfhA)
+![Deliver](https://www.filepicker.io/api/file/RVnEGV5Sxa7DNMYUSTVX)

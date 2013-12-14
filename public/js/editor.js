@@ -6962,6 +6962,12 @@ function drawImage(editor) {
     });
 }
 
+function drawCreateIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![Create](https://www.filepicker.io/api/file/dhIepG9Sl26LUlHQCwup)');
+}
+
 
 /**
  * Undo action.
