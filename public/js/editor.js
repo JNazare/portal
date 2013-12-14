@@ -6965,9 +6965,74 @@ function drawImage(editor) {
 function drawCreateIcon(editor) {
   var cm = editor.codemirror;
   var stat = getState(cm);
-  _replaceSelection(cm, stat.image, '![Create](https://www.filepicker.io/api/file/dhIepG9Sl26LUlHQCwup)');
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/dhIepG9Sl26LUlHQCwup)');
 }
 
+function drawInstallIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/fEu67NgKThug4TJeqlSa)');
+}
+
+function drawSpiralIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/HQVK75UQPSVZJBli80XQ)');
+}
+
+function drawDiscoverIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/7gOdGZkRGyv2W7efv8B2)');
+}
+
+function drawWatchIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/gmV0Nl9AT0KChhlsmvUZ)');
+}
+
+function drawReadIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/KYO1WQlQRugDlLxIWNmJ)');
+}
+
+function drawCollaborateIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/iSsZEY8WQ0OCzM1qIDqZ)');
+}
+
+function drawStretchIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/egzwlLbwR56hNDUeTnxX)');
+}
+
+function drawDownloadIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/sxeHPZjATH2Mhga3v05M)');
+}
+
+function drawFeedbackIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/7RAt9jr3ReuOsJ9Dg3st)');
+}
+
+function drawReflectIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/4B9JHJBRQUHTzqwnFfhA)');
+}
+
+function drawDeliverIcon(editor) {
+  var cm = editor.codemirror;
+  var stat = getState(cm);
+  _replaceSelection(cm, stat.image, '![','](https://www.filepicker.io/api/file/RVnEGV5Sxa7DNMYUSTVX)');
+}
 
 /**
  * Undo action.
@@ -7305,7 +7370,53 @@ Editor.prototype.createStatusbar = function(status) {
   return bar;
 };
 
+$('#create_button').click(function(){
+  drawCreateIcon(editor);
+})
 
+$('#install_button').click(function(){
+  drawInstallIcon(editor);
+})
+
+$('#spiral_button').click(function(){
+  drawSpiralIcon(editor);
+})
+
+$('#discover_button').click(function(){
+  drawDiscoverIcon(editor);
+})
+
+$('#watch_button').click(function(){
+  drawWatchIcon(editor);
+})
+
+$('#read_button').click(function(){
+  drawReadIcon(editor);
+})
+
+$('#collaborate_button').click(function(){
+  drawCollaborateIcon(editor);
+})
+
+$('#stretch_button').click(function(){
+  drawStretchIcon(editor);
+})
+
+$('#download_button').click(function(){
+  drawDownloadIcon(editor);
+})
+
+$('#feedback_button').click(function(){
+  drawFeedbackIcon(editor);
+})
+
+$('#reflect_button').click(function(){
+  drawReflectIcon(editor);
+})
+
+$('#deliver_button').click(function(){
+  drawDeliverIcon(editor);
+})
 /**
  * Bind static methods for exports.
  */
@@ -7356,3 +7467,4 @@ Editor.prototype.toggleFullScreen = function() {
 
 global.Editor = Editor;
 })(this);
+

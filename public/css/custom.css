@@ -21,3 +21,8 @@ a.navbar-brand {
 #si_icon{
 	padding:5px;
 }
+
+.noformatbutton{
+	border: none;
+	background: none;
+}
