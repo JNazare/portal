@@ -3,6 +3,9 @@ var express = require('express')
   , user = require('./routes/user')
   , login = require('./routes/login')
   , product = require('./routes/product')
+  , development = require('./routes/development')
+  , marketing = require('./routes/marketing')
+  , sales = require('./routes/sales')
   , intro = require('./routes/intro')
   , helpers = require('./routes/helpers')
   , http = require('http')
@@ -39,7 +42,15 @@ app.post('/product/:file/save', product.savelab);
 app.get('/intro', intro.show);
 app.get('/intro/:file', intro.showlab);
 app.post('/intro/:file/save', intro.savelab);
-app.get('/test', helpers.get_user);
+app.get('/development', development.show);
+app.get('/development/:file', development.showlab);
+app.post('/development/:file/save', development.savelab);
+app.get('/marketing', marketing.show);
+app.get('/marketing/:file', marketing.showlab);
+app.post('/marketing/:file/save', marketing.savelab);
+app.get('/sales', sales.show);
+app.get('/sales/:file', sales.showlab);
+app.post('/sales/:file/save', sales.savelab);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

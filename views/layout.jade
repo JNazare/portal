@@ -53,26 +53,26 @@ head
           #sidebar-left.col-lg-2.col-sm-1.minified
         else
           #sidebar-left.col-lg-2.col-sm-1
-            if(folders)
-              for folder in folders
-                .sidebar-nav.nav-collapse.collapse.navbar-collapse
-                  ul.nav.main-menu
-                    li
-                      if(logged_in == true)
-                        a(href='/home')
-                          i.fa.fa-bar-chart-o
-                          span.hidden-sm.text HOME
-                      else
-                        a(href='/')
-                          i.fa.fa-bar-chart-o
-                          span.hidden-sm.text HOME
+            if(tree)
+              .sidebar-nav.nav-collapse.collapse.navbar-collapse
+                ul.nav.main-menu
+                  li
+                    if(logged_in == true)
+                      a(href='/home')
+                        i.fa.fa-bar-chart-o
+                        span.hidden-sm.text HOME
+                    else
+                      a(href='/')
+                        i.fa.fa-bar-chart-o
+                        span.hidden-sm.text HOME
+                  for folder in tree
                     li
                       a.dropmenu(href='/home#')
                         i.fa.fa-folder-open
-                        span.hidden-sm.text #{folder}
+                        span.hidden-sm.text #{folder.name}
                         span.chevron.closed
                       ul
-                        for file in files
+                        for file in folder
                           li
                             a(href=file.url)
                               i.fa.fa-folder
@@ -86,7 +86,7 @@ head
                 ol.breadcrumb
                   if(logged_in == true)
                     li
-                      a(href='/home') Chicago
+                      | Chicago
                     li.active Home
                 .row
                   .col-sm-12.col-md-12

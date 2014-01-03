@@ -16,24 +16,22 @@ exports.get_oauth_code = function(req, res){
 
 exports.get_oauth_token = function(req, res){
 	if(req.session.token){
+		console.log("HAVE TOKEN");
 		req.logged_in = true;
-    	helpers.get_folder_structure(req, function(folders){ 
-    		helpers.get_product_structure(req, function(files){
-    			helpers.get_user(req, function(user_info){
-    				req.session.user_info = user_info;
-    				console.log(user_info);
-    				res.render('index', {
-	    				folders: folders, 
-	    				files: files, 
-	    				logged_in: req.logged_in,
-	    				user_info: user_info, 
-	    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
-	    			}); 
-    			});
-    		})
+    	helpers.get_tree(req, function(tree){ 
+			helpers.get_user(req, function(user_info){
+				req.session.user_info = user_info;
+				res.render('index', {
+    				tree: tree,
+    				logged_in: req.logged_in,
+    				user_info: user_info, 
+    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
+    			}); 
+			});
     	});
 	}
 	else{
+		console.log("DONT HAVE TOKEN");
 		var code = req.url.split("=")[1]
 		var pathName = "https://github.com/login/oauth/access_token";
 	  	var client_id = process.env.CLIENT_ID;
@@ -44,20 +42,17 @@ exports.get_oauth_token = function(req, res){
 			if (!error && response.statusCode == 200) {
 				req.logged_in = true;
 		    	req.session.token = token;
-		    	helpers.get_folder_structure(req, function(folders){ 
-		    		helpers.get_product_structure(req, function(files){
-		    			helpers.get_user(req, function(user_info){
-		    				req.session.user_info = user_info;
-		    				console.log(user_info);
-		    				res.render('index', {
-			    				folders: folders, 
-			    				files: files, 
-			    				logged_in: req.logged_in,
-			    				user_info: user_info, 
-			    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
-			    			}); 
-		    			});
-		    		})
+		    	helpers.get_tree(req, function(tree){ 
+	    			helpers.get_user(req, function(user_info){
+	    				req.session.user_info = user_info;
+	    				console.log(user_info);
+	    				res.render('index', {
+		    				tree: tree,
+		    				logged_in: req.logged_in,
+		    				user_info: user_info, 
+		    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
+		    			}); 
+	    			});
 		    	});
 		  	}
 		})
