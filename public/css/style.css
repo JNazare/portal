@@ -807,6 +807,9 @@ a#main-menu-min i:hover {
 #sidebar-left {
   padding: 10px !important;
   z-index: 2;
+  width: 25%;
+  background-color: #e9ebec;
+  border-right: 1px solid #dbdee0;
 }
 .sidebar-nav > ul {
   margin: -9px -25px;
@@ -5887,10 +5890,10 @@ ul.friends-list li a {
     padding: 30px;
     margin: 0;
     height: 100%;
-    width: 85.578%;
+    width: 75%;
   }
   .container #sidebar-left {
-    width: 14.422%;
+    width: 25%;
   }
   .container .breadcrumb {
     margin: -30px -30px 30px -30px;
