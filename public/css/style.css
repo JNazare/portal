@@ -414,7 +414,7 @@ h6 {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
-  z-index: 2;
+  z-index: 20;
 }
 .navbar a {
   color: #7b7b7b;
@@ -479,7 +479,7 @@ h6 {
   color: white;
 }
 a.navbar-brand {
-  background: #282b2e;
+  /*background: #282b2e;*/
   text-align: center;
   padding: 9px 0 10px 0 !important;
 }
@@ -825,14 +825,14 @@ a#main-menu-min i:hover {
   padding: 0;
 }
 .nav.main-menu > li {
-  margin-top: -1px;
+  margin-top: -4px;
 }
 .nav.main-menu > li > a,
 .nav.main-menu > li > ul > li > a,
 .nav.main-menu > li > ul > li > ul > li > a,
 .nav.main-menu > li > ul > li > ul > li > ul > li > a {
   margin: 0px;
-  height: 40px;
+  height: 46px;
   padding: 1px 0 0 0;
   color: #7c848d;
   border: none;
@@ -5896,6 +5896,8 @@ ul.friends-list li a {
   .container .breadcrumb {
     margin: -30px -30px 30px -30px;
     padding: 10px 30px;
+    width: 100%;
+    position: fixed;
   }
 }
 /* Higher than 992 (desktop devices)

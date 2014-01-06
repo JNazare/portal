@@ -299,6 +299,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   }
 }
 .CodeMirror {
+  z-index: -10;
+  top: 100px;
   height: 100%;
 }
 :-webkit-full-screen {
@@ -328,13 +330,19 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   opacity: 0.6;
 }
 .editor-toolbar {
-  position: relative;
-  opacity: 0.6;
+  position: fixed;
+  opacity: 1.0;
+  top: 40px;
+  z-index: 10;
+  background-color: #e9ebec;
+  border: 1px solid #dbdee0;
+  width: 100%;
+  margin-left: -46px;
+  padding-left: 10px;
 }
 .editor-toolbar:before, .editor-toolbar:after {
   display: block;
   content: ' ';
-  height: 1px;
   background-color: #bdc3c7;
   background: -moz-linear-gradient(45deg, #f9f9f9, #bdc3c7, #f9f9f9);
   background: -webkit-linear-gradient(45deg, #f9f9f9, #bdc3c7, #f9f9f9);
