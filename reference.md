@@ -1,16 +1,4 @@
-* Our icons need to be input
-???? * Only specific permissions
-DONE * Username and profile need to be integrated
-DONE * Logout feature
-DONE * If logged in, direct to home screen
-DONE * Command S = save
-DONE * Nav (/home) needs to work
-DONE * Save needs user response (green saved alert) 
-DONE * Breadcrumbs need to be set up
-DONE * Needs to start on preview
-DONE Filepicker needs to go into image upload
-
-Icons:
+Icon Reference:
 ![Install](https://www.filepicker.io/api/file/fEu67NgKThug4TJeqlSa)
 ![Spiral](https://www.filepicker.io/api/file/HQVK75UQPSVZJBli80XQ)
 ![Discover](https://www.filepicker.io/api/file/7gOdGZkRGyv2W7efv8B2)

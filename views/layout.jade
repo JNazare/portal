@@ -21,10 +21,10 @@ head
           i.fa.fa-bars
         if(logged_in==true)
           a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/home')
-            span Startup Institute Chicago
+            span Startup Institute Curriculum
         else
           a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/')
-            span Startup Institute Chicago
+            span Startup Institute Curriculum
         .nav-no-collapse.header-nav
           ul.nav.navbar-nav.pull-right
             li.dropdown
@@ -67,7 +67,7 @@ head
                         span.hidden-sm.text HOME
                   for folder in tree
                     li
-                      a.dropmenu(href='/home#')
+                      a.dropmenu(href='#')
                         i.fa.fa-folder-open
                         span.hidden-sm.text #{folder.name}
                         span.chevron.closed
@@ -77,7 +77,7 @@ head
                             a(href=file.url)
                               i.fa.fa-folder
                               span.hidden-sm.text #{file.name}
-            a#main-menu-min.full.visible-md.visible-lg(href='/home#')
+            a#main-menu-min.full.visible-md.visible-lg(href='#')
               i.fa.fa-angle-double-left
         if(logged_in==false)
           #content.col-lg-10.col-sm-11.sidebar-minified
@@ -86,7 +86,7 @@ head
                 ol.breadcrumb
                   if(logged_in == true)
                     li
-                      | Chicago
+                      | Curriculum
                     li.active Home
                 .row
                   .col-sm-12.col-md-12
@@ -98,7 +98,7 @@ head
                 ol.breadcrumb
                   if(logged_in == true)
                     li
-                      a(href='/home') Chicago
+                      a(href='/home') Curriculum
                     if(current_filename)
                       li.active #{current_filename}
                     else
@@ -139,4 +139,3 @@ head
     script.
       console.log($('#filepicker_key').val());
       filepicker.setKey( $('#filepicker_key').val() );
-      // $('.collapse').collapse()

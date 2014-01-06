@@ -1,12 +1,10 @@
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
   , login = require('./routes/login')
   , product = require('./routes/product')
   , development = require('./routes/development')
   , marketing = require('./routes/marketing')
   , sales = require('./routes/sales')
-  , intro = require('./routes/intro')
   , helpers = require('./routes/helpers')
   , http = require('http')
   , path = require('path');
@@ -31,25 +29,30 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+// Home routes
 app.get('/', routes.index);
-app.get('/users', user.list);
+app.get('/home', login.get_oauth_token);
+
+// Login routes
 app.get('/login', login.get_oauth_code);
 app.get('/logout', login.logout);
-app.get('/home', login.get_oauth_token);
+
+// Track routes
 app.get('/product', product.show);
-app.get('/product/:file', product.showlab);
-app.post('/product/:file/save', product.savelab);
-app.get('/intro', intro.show);
-app.get('/intro/:file', intro.showlab);
-app.post('/intro/:file/save', intro.savelab);
 app.get('/development', development.show);
-app.get('/development/:file', development.showlab);
-app.post('/development/:file/save', development.savelab);
 app.get('/marketing', marketing.show);
-app.get('/marketing/:file', marketing.showlab);
-app.post('/marketing/:file/save', marketing.savelab);
 app.get('/sales', sales.show);
+
+// File routes
+app.get('/product/:file', product.showlab);
+app.get('/development/:file', development.showlab);
+app.get('/marketing/:file', marketing.showlab);
 app.get('/sales/:file', sales.showlab);
+
+// Save routes
+app.post('/product/:file/save', product.savelab);
+app.post('/development/:file/save', development.savelab);
+app.post('/marketing/:file/save', marketing.savelab);
 app.post('/sales/:file/save', sales.savelab);
 
 http.createServer(app).listen(app.get('port'), function(){

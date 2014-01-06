@@ -29,6 +29,6 @@ exports.showlab = function(req, res){
 exports.savelab = function(req, res){
 	req.session.track = "development";
 	helpers.save_file(req, function(callback){
-		res.send("HERE");
+		res.send("SAVED!");
 	});
 }
