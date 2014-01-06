@@ -89,8 +89,6 @@ body:after {
   content: '';
   height: 100%;
   width: 85.578%;
-  background: #f3f3f3;
-  border-left: 1px solid #dbdee0;
   z-index: 0;
 }
 body:before {
