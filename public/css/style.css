@@ -290,6 +290,14 @@ h6 {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
+  z-index: 60;
+  position: fixed;
+  right: 0px;
+  top: 39px;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  padding-bottom: 10px;
 }
 /* Main Colors
 =================================================================== */
@@ -826,13 +834,14 @@ a#main-menu-min i:hover {
 }
 .nav.main-menu > li {
   margin-top: -4px;
+  border: none;
 }
 .nav.main-menu > li > a,
 .nav.main-menu > li > ul > li > a,
 .nav.main-menu > li > ul > li > ul > li > a,
 .nav.main-menu > li > ul > li > ul > li > ul > li > a {
   margin: 0px;
-  height: 46px;
+  height: 47px;
   padding: 1px 0 0 0;
   color: #7c848d;
   border: none;
