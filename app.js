@@ -34,7 +34,7 @@ app.get('/', routes.index);
 app.get('/home', login.get_oauth_token);
 
 // Login routes
-app.get('/login', login.get_oauth_code);
+app.get('/login', login.get_oauth_token);
 app.get('/logout', login.logout);
 
 // Track routes
