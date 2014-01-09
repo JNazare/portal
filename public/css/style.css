@@ -6148,3 +6148,35 @@ ul.friends-list li a {
     display: none;
   }
 }
+
+html{
+  background-color: #f3f3f3;
+}
+
+.navbar>.container .navbar-brand {
+  margin-left: 35px;
+}
+
+a.navbar-brand {
+  width: 20%;
+}
+
+.editor-preview{
+  background-color: #f3f3f3;
+}
+
+#sidebar-right{
+  background-color: #dbdee0;
+}
+#si_icon{
+  padding:5px;
+}
+
+.noformatbutton{
+  border: none;
+  background: none;
+}
+
+#login-button{
+  padding-top: 20px !important;
+};

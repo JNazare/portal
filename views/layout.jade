@@ -1,141 +1,58 @@
 doctype html 5
 html(lang='en')
 head
-    meta(charset='utf-8')
-    title Startup Institute Curriculum
-    meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(href='/css/bootstrap.min.css', rel='stylesheet')
-    link(href='/css/editor.css', rel='stylesheet')
-    link(href='/css/style.css', rel='stylesheet')
-    link(href='/css/retina.min.css', rel='stylesheet')
-    link(href='/css/print.css', rel='stylesheet', type='text/css', media='print')
-    link(href='/css/custom.css', rel='stylesheet')
-  body
-    header.navbar.navbar-fixed-top
-      .container
-        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.sidebar-nav.nav-collapse')
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
-        a#main-menu-toggle.hidden-xs.open
-          i.fa.fa-bars
-        if(logged_in==true)
-          a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/home')
-            span Startup Institute Curriculum
-        else
-          a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/')
-            span Startup Institute Curriculum
-        .nav-no-collapse.header-nav
-          ul.nav.navbar-nav.pull-right
-            li.dropdown
-              if(logged_in == true)
-                a.btn.account.dropdown-toggle(data-toggle='dropdown', href='index.html#')
-                  .avatar
-                    if(user_info)
-                      img(src=user_info.pic, alt='Avatar')
-                  .user
-                    span.hello Welcome!
-                    if(user_info)
-                      span.name #{user_info.name}
-                ul.dropdown-menu
-                  li
-                    a(href='/logout')
-                      i.fa.fa-off
-                      | Logout
-              else
-                a.btn.account(href='/login')#login-button
-                  .user
-                    span.name Login &nbsp;&nbsp;
+	meta(charset='utf-8')
+	title Startup Institute Curriculum
+	meta(name='viewport', content='width=device-width, initial-scale=1')
+	link(href='/css/bootstrap.min.css', rel='stylesheet')
+	link(href='/css/editor.css', rel='stylesheet')
+	link(href='/css/style.css', rel='stylesheet')
+	body
+		if(logged_in==true)
+			block navbar
+		.container
+			.row
+				if(logged_in==true)
+					block sidebar
+					#content.col-lg-10.col-sm-11.sidebar
+						.row
+							.col-sm-12.col-md-12
+								.row
+									.col-sm-12.col-md-12
+										block content
+										
+		script(src='/js/jquery-2.0.3.min.js')
+		script(src='/js/jquery-migrate-1.2.1.min.js')
+		script(src='/js/bootstrap.min.js')
+		script(src='/js/jquery-ui-1.10.3.custom.min.js')
+		script(src='/js/jquery.ui.touch-punch.min.js')
+		script(src='/js/jquery.sparkline.min.js')
+		script(src='/js/fullcalendar.min.js')
+		script(src='/js/jquery.flot.min.js')
+		script(src='/js/jquery.flot.pie.min.js')
+		script(src='/js/jquery.flot.stack.min.js')
+		script(src='/js/jquery.flot.resize.min.js')
+		script(src='/js/jquery.flot.time.min.js')
+		script(src='/js/jquery.autosize.min.js')
+		script(src='/js/jquery.placeholder.min.js')
+		script(src='/js/moment.min.js')
+		script(src='/js/daterangepicker.min.js')
+		script(src='/js/jquery.easy-pie-chart.min.js')
+		script(src='/js/jquery.dataTables.min.js')
+		script(src='/js/dataTables.bootstrap.min.js')
+		script(src='/js/custom.min.js')
+		script(src='/js/core.min.js')
+		script(src='/js/pages/index.js')
+		script(src='/js/marked.js')
+		script(type='text/javascript', src='http://api.filepicker.io/v1/filepicker.js')
+		script(src='/js/editor.js')
+		script.
+			var editor = new Editor();
+			editor.render();
+		script.
+			console.log($('#filepicker_key').val());
+			filepicker.setKey( $('#filepicker_key').val() );
 
-    .container
-      .row
-        if(logged_in==false)
-          #sidebar-left.col-lg-2.col-sm-1.minified
-        else
-          #sidebar-left.col-lg-2.col-sm-1
-            if(tree)
-              .sidebar-nav.nav-collapse.collapse.navbar-collapse
-                ul.nav.main-menu
-                  li
-                    if(logged_in == true)
-                      a(href='/home')
-                        i.fa.fa-bar-chart-o
-                        span.hidden-sm.text HOME
-                    else
-                      a(href='/')
-                        i.fa.fa-bar-chart-o
-                        span.hidden-sm.text HOME
-                  for folder in tree
-                    li
-                      a.dropmenu(href='#')
-                        i.fa.fa-folder-open
-                        span.hidden-sm.text #{folder.name}
-                        span.chevron.closed
-                      ul
-                        for file in folder
-                          li
-                            a(href=file.url)
-                              i.fa.fa-folder
-                              span.hidden-sm.text #{file.name}
-            a#main-menu-min.full.visible-md.visible-lg(href='#')
-              i.fa.fa-angle-double-left
-        if(logged_in==false)
-          #content.col-lg-10.col-sm-11.sidebar-minified
-            .row
-              .col-sm-12.col-md-12
-                ol.breadcrumb
-                  if(logged_in == true)
-                    li
-                      | Curriculum
-                    li.active Home
-                .row
-                  .col-sm-12.col-md-12
-                    block content
-        else
-          #content.col-lg-10.col-sm-11.sidebar
-            .row
-              .col-sm-12.col-md-12
-                ol.breadcrumb
-                  if(logged_in == true)
-                    li
-                      a(href='/home') Curriculum
-                    if(current_filename)
-                      li.active #{current_filename}
-                    else
-                      li.active Home
-                .row
-                  .col-sm-12.col-md-12
-                    block content
-    //- .clearfix
-    script(src='/js/jquery-2.0.3.min.js')
-    script(src='/js/jquery-migrate-1.2.1.min.js')
-    script(src='/js/bootstrap.min.js')
-    script(src='/js/jquery-ui-1.10.3.custom.min.js')
-    script(src='/js/jquery.ui.touch-punch.min.js')
-    script(src='/js/jquery.sparkline.min.js')
-    script(src='/js/fullcalendar.min.js')
-    script(src='/js/jquery.flot.min.js')
-    script(src='/js/jquery.flot.pie.min.js')
-    script(src='/js/jquery.flot.stack.min.js')
-    script(src='/js/jquery.flot.resize.min.js')
-    script(src='/js/jquery.flot.time.min.js')
-    script(src='/js/jquery.autosize.min.js')
-    script(src='/js/jquery.placeholder.min.js')
-    script(src='/js/moment.min.js')
-    script(src='/js/daterangepicker.min.js')
-    script(src='/js/jquery.easy-pie-chart.min.js')
-    script(src='/js/jquery.dataTables.min.js')
-    script(src='/js/dataTables.bootstrap.min.js')
-    script(src='/js/custom.min.js')
-    script(src='/js/core.min.js')
-    script(src='/js/pages/index.js')
-    script(src='/js/marked.js')
-    script(type='text/javascript', src='http://api.filepicker.io/v1/filepicker.js')
-    script(src='/js/editor.js')
-    script(src='/js/custom.js')
-    script.
-      var editor = new Editor();
-      editor.render();
-    script.
-      console.log($('#filepicker_key').val());
-      filepicker.setKey( $('#filepicker_key').val() );
+//- a.btn.account(href='/login')#login-button
+//- 										.user
+//- 											span.name Login &nbsp;&nbsp;
