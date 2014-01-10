@@ -1,14 +1,6 @@
 var helpers = require('./helpers.js');
 
-exports.show = function(req, res){
-	req.session.track = "development";
-	helpers.get_tree(req, function(tree){ 
-	    res.render('lab', {logged_in: true, tree: tree}); 
-	});
-}
-
 exports.showlab = function(req, res){
-	req.session.track = "development";
 	helpers.get_tree(req, function(tree){ 
 		helpers.get_file(req, function(result){ 
 			res.render('lab', {

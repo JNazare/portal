@@ -21,7 +21,8 @@ exports.get_user = function(req, callback){
 
 // Get contents of a file
 exports.get_file = function(req, callback){
-	var mypath = '/repos/StartupInstitute/curriculum/contents/'+req.session.track+'/'+req.params.file+'.md?'+req.session.token;
+
+	var mypath = '/repos/StartupInstitute/curriculum/contents'+req.url+'.md?'+req.session.token;
 	var options = {
 		headers: { 
     		'User-Agent': 'Curriculum Github',
@@ -31,7 +32,7 @@ exports.get_file = function(req, callback){
     	method: 'GET'
     };
 	request(options, function (error, response, contents) {
-		console.log(contents);
+		console.log(req.session.track);
 		if (error) { console.log(error); }
 		if (!error && response.statusCode == 200) {
 			var options = {
@@ -40,7 +41,7 @@ exports.get_file = function(req, callback){
 			}
 			request(options, function (error, reply, metadata){
 				var blob = JSON.parse(metadata).sha; 
-				callback({"contents": contents, "blob": blob, current_filename: req.params.file, "saveurl": "/"+req.session.track+"/"+req.params.file+"/save"});
+				callback({"contents": contents, "blob": blob, current_filename: req.params.file, "saveurl": req.url+"/save"});
 			})
 		}
 	});
@@ -48,7 +49,9 @@ exports.get_file = function(req, callback){
 
 // Save contents of a file
 exports.save_file = function(req, callback){
-	var relative_path = '/repos/StartupInstitute/curriculum/contents/'+req.session.track+'/'+req.params.file+'.md?'+req.session.token;
+	var url_chunks = req.url.split("/");
+	var to_save_url = "/"+url_chunks[1]+"/"+url_chunks[2];
+	var relative_path = '/repos/StartupInstitute/curriculum/contents'+to_save_url+'.md?'+req.session.token;
 	var content = new Buffer(req.body.content_to_save).toString('base64');
 	content = String(content);
 	var full_path = 'https://api.github.com'+relative_path;
@@ -65,7 +68,6 @@ exports.save_file = function(req, callback){
 			"sha" : sha
 		}
 	}
-	console.log(options);
     request(options, function (error, response, body) {
 		if (error) { console.log(error); }
 		if (response.statusCode != 200) {
