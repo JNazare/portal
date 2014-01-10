@@ -9,6 +9,7 @@
     "express": "3.1.2",
     "jade": "*",
     "request": "*",
-    "async": "*"
+    "async": "*",
+    "passport-local": "*"
   }
 }

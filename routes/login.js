@@ -60,9 +60,7 @@ exports.get_oauth_token = function(req, res){
   	}
 }
 
-
-exports.logout = function(req, res){
-	req.session.destroy();
-	res.redirect('/');
+exports.signup = function(req, res){
+	res.render('signup', { user: req.user, logged_in: req.logged_in});	
 }
 
