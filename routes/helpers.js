@@ -22,7 +22,7 @@ exports.get_user = function(req, callback){
 // Get contents of a file
 exports.get_file = function(req, callback){
 
-	var mypath = '/repos/StartupInstitute/curriculum/contents'+req.url+'.md?ref='+req.user.city+'&'+req.session.token;
+	var mypath = '/repos/StartupInstitute/curriculum/contents'+req.url+'.md?ref='+req.session.copy+'&'+req.session.token;
 	var options = {
 		headers: { 
     		'User-Agent': 'Curriculum Github',
@@ -57,7 +57,7 @@ exports.save_file = function(req, callback){
 	var full_path = 'https://api.github.com'+relative_path;
 	var message = 'Update file';
 	var sha = req.body.blob_to_save;
-
+	console.log(req.session.copy);
 	var options = {
 		"headers" : {"User-Agent": "Revamped Curriculum Github"},
 		"method" : "PUT",
@@ -66,7 +66,7 @@ exports.save_file = function(req, callback){
 			"message" : "Commit by: " + req.user.name.first_name + " " + req.user.name.last_name + ", email: " + req.user.username + " ["+ req.user.city + "]",
 			"content" : content,
 			"sha" : sha,
-			"branch": req.user.city
+			"branch": req.session.copy
 		}
 	}
     request(options, function (error, response, body) {
@@ -101,7 +101,7 @@ exports.get_tree = function(req, callback){
 	var tree = {};
 	var options = {
 		headers : {"User-Agent": "Curriculum Github"},
-		url : 'https://api.github.com/repos/StartupInstitute/curriculum/contents?ref='+req.user.city+'&'+req.session.token
+		url : 'https://api.github.com/repos/StartupInstitute/curriculum/contents?ref='+req.session.copy+'&'+req.session.token
 	}
 	request(options, function (error, reply, metadata){
 		var dev_sha = JSON.parse(metadata)[0].sha;

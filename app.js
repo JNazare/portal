@@ -130,6 +130,7 @@ app.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
     if (err) { return next(err) }
     if (!user) {
+      req.session.copy = req.user.city;
       req.session.messages =  [info.message];
       return res.redirect('/login')
     }
@@ -173,3 +174,11 @@ app.post('/product/:file/save', ensureAuthenticated, lab.savelab);
 app.post('/development/:file/save', ensureAuthenticated, lab.savelab);
 app.post('/marketing/:file/save', ensureAuthenticated, lab.savelab);
 app.post('/sales/:file/save', ensureAuthenticated, lab.savelab);
+
+// Branch routes
+app.get('/switch_branch/master', ensureAuthenticated, lab.switch_branch);
+app.get('/switch_branch/boston', ensureAuthenticated, lab.switch_branch);
+app.get('/switch_branch/nyc', ensureAuthenticated, lab.switch_branch);
+app.get('/switch_branch/chicago', ensureAuthenticated, lab.switch_branch);
+app.get('/switch_branch/london', ensureAuthenticated, lab.switch_branch);
+app.get('/switch_branch/berlin', ensureAuthenticated, lab.switch_branch);

@@ -20,7 +20,7 @@ head
 								.row
 									.col-sm-12.col-md-12
 										block content
-										
+		input(type='hidden', id='copyinput', name='copyinput', value=copy)
 		script(src='/js/jquery-2.0.3.min.js')
 		script(src='/js/jquery-migrate-1.2.1.min.js')
 		script(src='/js/bootstrap.min.js')
@@ -43,8 +43,8 @@ head
 		script(src='/js/custom.min.js')
 		script(src='/js/core.min.js')
 		script(src='/js/pages/index.js')
-		script(src='/js/marked.js')
 		script(type='text/javascript', src='http://api.filepicker.io/v1/filepicker.js')
+		script(src='/js/marked.js')
 		script(src='/js/editor.js')
 		script.
 			var editor = new Editor();
@@ -55,7 +55,16 @@ head
 		script.
 			var n = $('#name_span').text().toUpperCase();
 			$('#name_span').text(n);
-
-//- a.btn.account(href='/login')#login-button
-//- 										.user
-//- 											span.name Login &nbsp;&nbsp;
+			var copy = $('#copyinput').val();
+			var copy = copy.substr(0,1).toUpperCase()+copy.substr(1);
+			if(copy=="Nyc"){
+				copy="New York";
+			}
+			var brand = $(".navbar-brand").text();
+			$("#copyspan").text(brand + copy);
+		script.
+			windowHeight = $('.editor-preview-active').children().size()*100;
+			console.log(windowHeight);
+			$("#sidebar-left").css('min-height', windowHeight+600);
+			$('.editor-preview-active').css('min-height', windowHeight+500);
+			$(".codemirror-code").css("min-height", windowHeight+500);

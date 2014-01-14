@@ -20,13 +20,13 @@ exports.get_oauth_code = function(req, res){
 
 exports.get_oauth_token = function(req, res){
 	if(req.session.token){
-		console.log("HAVE TOKEN");
+		console.log(req.user.city);
 		req.logged_in = true;
     	helpers.get_tree(req, function(tree){ 
 			helpers.get_user(req, function(user_info){
 				req.session.user_info = user_info;
-				console.log(req.user);
 				res.render('home', {
+					copy: req.session.copy,
 					user: req.user,
     				tree: tree,
     				logged_in: req.logged_in,
@@ -39,7 +39,8 @@ exports.get_oauth_token = function(req, res){
 	}
 	else{
 		console.log("DONT HAVE TOKEN");
-		var code = req.url.split("=")[1]
+		req.session.copy = req.user.city;
+		var code = req.url.split("=")[1];
 		var pathName = "https://github.com/login/oauth/access_token";
 	  	var client_id = process.env.CLIENT_ID;
 	  	var redirect_uri = "http://localhost:3000/home";
@@ -55,6 +56,7 @@ exports.get_oauth_token = function(req, res){
 	    				req.session.user_info = user_info;
 	    				console.log(user_info);
 	    				res.render('home', {
+	    					copy: req.user.city,
 	    					user: req.user,
 		    				tree: tree,
 		    				logged_in: req.logged_in,
@@ -86,7 +88,7 @@ exports.signingup = function(req, res){
 		role: req.body.role,
 		city: req.body.city
 	});
-	if((user.access_token=="S1instructor"&&user.role=="instructor")||(user.access_token=="S1student"&&user.role=="student")){
+	if((user.access_token=="S1instructor"&&user.role=="instructor"&&user.city!="master")||(user.access_token=="S1student"&&user.role=="student"&&user.city!="master")){
 		console.log(user);
 		user.save(function (err){
 	    if (err){ return console.log("error", err);}
@@ -95,6 +97,17 @@ exports.signingup = function(req, res){
             res.render('login', { user: req.user, logged_in: req.logged_in, message: 'Account created!'});
 	        }
 	    });    
+	}
+	else if(user.access_token=="S1admin"&&user.role=="admin"){
+		user.city="master";
+		console.log(user);
+		user.save(function (err){
+	    if (err){ return console.log("error", err);}
+	    else{
+        	console.log(req.body.first_name + " " + req.body.last_name + " ["+user.city+"]" );
+            res.render('login', { user: req.user, logged_in: req.logged_in, message: 'Account created!'});
+	        }
+	    });
 	}	
 	else{
 		res.render('signup', { user: req.user, logged_in: req.logged_in, message: 'Incorrect access token!'})

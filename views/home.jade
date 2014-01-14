@@ -10,7 +10,7 @@ block navbar
 			a#main-menu-toggle.hidden-xs.open
 				i.fa.fa-bars
 			a.navbar-brand.col-md-2.col-sm-1.col-xs-2(href='/home')
-				span Startup Institute Curriculum
+				span#copyspan Startup Institute Curriculum: 
 			.nav-no-collapse.header-nav
 				ul.nav.navbar-nav.pull-right
 					li.dropdown
@@ -24,6 +24,38 @@ block navbar
 								a(href='/logout')
 									i.fa.fa-off
 									| Logout
+							if(user.role=="admin")
+								if(copy!="master")
+									li
+										a(href='/switch_branch/master')
+											i.fa.fa-off
+											| Switch to master
+								if(copy!="boston")
+									li
+										a(href='/switch_branch/boston')
+											i.fa.fa-off
+											| Switch to Boston
+								if(copy!="nyc")
+									li
+										a(href='/switch_branch/nyc')
+											i.fa.fa-off
+											| Switch to New York
+								if(copy!="chicago")
+									li
+										a(href='/switch_branch/chicago')
+											i.fa.fa-off
+											| Switch to Chicago
+								if(copy!="london")
+									li
+										a(href='/switch_branch/london')
+											i.fa.fa-off
+											| Switch to London
+								if(copy!="berlin")
+									li
+										a(href='/switch_branch/berlin')
+											i.fa.fa-off
+											| Switch to Berlin
+									
 
 block sidebar
 	#sidebar-left.col-lg-2.col-sm-1
@@ -46,5 +78,3 @@ block sidebar
 										a(href=file.url)
 											i.fa.fa-folder
 											span.hidden-sm.text #{file.name}
-		//- a#main-menu-min.full.visible-md.visible-lg(href='#')
-		//- 	i.fa.fa-angle-double-left

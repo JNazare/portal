@@ -1327,8 +1327,8 @@ textarea {
   box-sizing: content-box;
 }
 .editor {
-  max-height: 250px;
-  height: 250px;
+  /*max-height: 250px;
+  height: 250px;*/
   background-color: white;
   border-collapse: separate;
   border: 1px solid #ced1d4 !important;
@@ -6169,7 +6169,9 @@ body{
 }
 
 a.navbar-brand {
-  width: 20%;
+  width: 100%;
+  text-align: left;
+
 }
 
 .editor-preview{
