@@ -68,3 +68,8 @@ head
 			$("#sidebar-left").css('min-height', windowHeight+600);
 			$('.editor-preview-active').css('min-height', windowHeight+500);
 			$(".codemirror-code").css("min-height", windowHeight+500);
+		script.
+			console.log($("#r_input").val());
+			if($("#r_input").val()=="student"){
+				$( ".editor-toolbar" ).remove();
+			}

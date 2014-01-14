@@ -60,8 +60,8 @@ var user = new User({
   },
   username: "juliana@si.com",
   password: "secret",
-  access_token: "S1instructor",
-  role: "instructor",
+  access_token: "S1student",
+  role: "student",
   city: "boston"
 });
 
