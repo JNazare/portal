@@ -7467,4 +7467,3 @@ Editor.prototype.toggleFullScreen = function() {
 
 global.Editor = Editor;
 })(this);
-

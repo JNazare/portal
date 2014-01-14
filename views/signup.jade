@@ -1,8 +1,54 @@
 doctype html 5
 html(lang='en')
 	head
-		title Startup Institute Curriculum
-		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title Login
 		link(href='/css/bootstrap.min.css', rel='stylesheet')
+		link(href='/css/signup.css', rel='stylesheet')
 	body
-		| SIGNUP HERE
+		.container
+			.row
+				.col-xs-12.col-sm-12.col-md-4.col-md-offset-4
+					h2
+						| Sign up!
+					div
+						if (message)
+							.alert.alert-info
+								| #{message}
+					form.form(action='/signup', method='post', role='form')
+						.row
+							.col-xs-6.col-md-6
+								input.form-control(name='first_name', placeholder='First Name', type='text', required='required', autofocus='autofocus')
+							.col-xs-6.col-md-6
+								input.form-control(name='last_name', placeholder='Last Name', type='text', required='required')
+						input.form-control(name='username', placeholder='Your Email', type='email', required='required')
+						input.form-control(name='password', placeholder='New Password', type='password', required='required')
+						input.form-control(name='access_token', placeholder='Access Token', type='text', required='required')
+						.row
+							.col-xs-4.col-md-6
+								label(for='')
+									| Role
+								select.form-control(required='required', id='role', name='role')
+									option(value='student') Student
+									option(value='instructor') Instructor
+							.col-xs-4.col-md-6
+								label(for='')
+									| City
+								select.form-control(required='required', id='city', name='city')
+									option(value='boston') Boston
+									option(value='nyc') New York
+									option(value='chicago') Chicago
+									option(value='london') London
+									option(value='berlin') Berlin
+									option(value='master') Master
+						br
+						button.btn.btn-lg.btn-primary.btn-block(type='submit', name='submit_button', id='submit_button')
+							| Sign up
+						input(name='role_input', id='role_input', type='hidden', value="")
+						input(name='city_input', id='city_input', type='hidden', value="")
+		script(src='/js/jquery-2.0.3.min.js')
+		script(src='/js/signup.js')

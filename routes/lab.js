@@ -4,6 +4,7 @@ exports.showlab = function(req, res){
 	helpers.get_tree(req, function(tree){ 
 		helpers.get_file(req, function(result){ 
 			res.render('lab', {
+				user: req.user,
 				logged_in: true,
 				root: './public', 
 				contents: result.contents, 
@@ -19,7 +20,6 @@ exports.showlab = function(req, res){
 }
 
 exports.savelab = function(req, res){
-	req.session.track = "development";
 	helpers.save_file(req, function(callback){
 		res.send("SAVED!");
 	});

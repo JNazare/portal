@@ -2,6 +2,10 @@ var request = require('request');
 var fs = require( 'fs' );
 var async = require( 'async' );
 var helpers = require('./helpers.js');
+var models = require('./models.js');
+var mongoose = require('mongoose');
+
+var UserSchema = models.userSchema;
 
 
 exports.get_oauth_code = function(req, res){
@@ -21,11 +25,14 @@ exports.get_oauth_token = function(req, res){
     	helpers.get_tree(req, function(tree){ 
 			helpers.get_user(req, function(user_info){
 				req.session.user_info = user_info;
+				console.log(req.user);
 				res.render('home', {
+					user: req.user,
     				tree: tree,
     				logged_in: req.logged_in,
     				user_info: user_info, 
-    				FILEPICKER_KEY: process.env.FILEPICKER_KEY
+    				FILEPICKER_KEY: process.env.FILEPICKER_KEY,
+    				user: req.user 
     			}); 
 			});
     	});
@@ -48,6 +55,7 @@ exports.get_oauth_token = function(req, res){
 	    				req.session.user_info = user_info;
 	    				console.log(user_info);
 	    				res.render('home', {
+	    					user: req.user,
 		    				tree: tree,
 		    				logged_in: req.logged_in,
 		    				user_info: user_info, 
@@ -64,3 +72,31 @@ exports.signup = function(req, res){
 	res.render('signup', { user: req.user, logged_in: req.logged_in});	
 }
 
+exports.signingup = function(req, res){
+	// console.log(req.body);
+	var userSchema = mongoose.model('User', userSchema);
+	var user = new userSchema({
+		name: {
+			first_name: req.body.first_name.toLowerCase(), 
+			last_name: req.body.last_name.toLowerCase()
+		},
+		username: req.body.username.toLowerCase(),
+		password: req.body.password,
+		access_token: req.body.access_token,
+		role: req.body.role,
+		city: req.body.city
+	});
+	if((user.access_token=="S1instructor"&&user.role=="instructor")||(user.access_token=="S1student"&&user.role=="student")){
+		console.log(user);
+		user.save(function (err){
+	    if (err){ return console.log("error", err);}
+	    else{
+        	console.log(req.body.first_name + " " + req.body.last_name);
+            res.render('login', { user: req.user, logged_in: req.logged_in, message: 'Account created!'});
+	        }
+	    });    
+	}	
+	else{
+		res.render('signup', { user: req.user, logged_in: req.logged_in, message: 'Incorrect access token!'})
+	}
+}

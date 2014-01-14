@@ -11,7 +11,7 @@ head
 		if(logged_in==true)
 			block navbar
 		.container
-			.row
+			.row#show
 				if(logged_in==true)
 					block sidebar
 					#content.col-lg-10.col-sm-11.sidebar
@@ -52,6 +52,9 @@ head
 		script.
 			console.log($('#filepicker_key').val());
 			filepicker.setKey( $('#filepicker_key').val() );
+		script.
+			var n = $('#name_span').text().toUpperCase();
+			$('#name_span').text(n);
 
 //- a.btn.account(href='/login')#login-button
 //- 										.user

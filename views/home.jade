@@ -15,12 +15,10 @@ block navbar
 				ul.nav.navbar-nav.pull-right
 					li.dropdown
 						a.btn.account.dropdown-toggle(data-toggle='dropdown', href='home.html#')
-							.avatar
-								img(src=user_info.pic, alt='Avatar')
 							.user
 								span.hello Welcome!
-								if(user_info)
-									span.name #{user_info.name}
+								span.name#name_span 
+									| #{user.name.first_name} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						ul.dropdown-menu
 							li
 								a(href='/logout')
@@ -33,14 +31,9 @@ block sidebar
 			.sidebar-nav.nav-collapse.collapse.navbar-collapse
 				ul.nav.main-menu
 					li
-						if(logged_in == true)
-							a(href='/home')
-								i.fa.fa-bar-chart-o
-								span.hidden-sm.text HOME
-						else
-							a(href='/')
-								i.fa.fa-bar-chart-o
-								span.hidden-sm.text HOME
+						a(href='/')
+							i.fa.fa-bar-chart-o
+							span.hidden-sm.text HOME
 					for folder in tree
 						li
 							a.dropmenu(href='#')
@@ -53,5 +46,5 @@ block sidebar
 										a(href=file.url)
 											i.fa.fa-folder
 											span.hidden-sm.text #{file.name}
-		a#main-menu-min.full.visible-md.visible-lg(href='#')
-			i.fa.fa-angle-double-left
+		//- a#main-menu-min.full.visible-md.visible-lg(href='#')
+		//- 	i.fa.fa-angle-double-left
