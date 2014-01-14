@@ -38,8 +38,8 @@ exports.get_oauth_token = function(req, res){
     	});
 	}
 	else{
-		console.log("DONT HAVE TOKEN");
 		req.session.copy = req.user.city;
+		console.log(req.user.city);
 		var code = req.url.split("=")[1];
 		var pathName = "https://github.com/login/oauth/access_token";
 	  	var client_id = process.env.CLIENT_ID;
