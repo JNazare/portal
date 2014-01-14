@@ -159,9 +159,23 @@ function ensureAuthenticated(req, res, next) {
   res.redirect('/login')
 }
 
+app.post('/lostpassword', function(req, res){
+  var username = req.body.username;
+  User.findOne({ username: username.toLowerCase() }, function(err, user) {
+    if (err) { return done(err); }
+    else if (!user) { 
+      res.render('lostpassword', {message: "This is not a registered email."}); 
+    }
+    else { 
+      res.render('lostpassword', {message: "Your password has been sent to your registered email."}); 
+    }
+  });
+});
+
 // Signup routes
 app.get('/signup', login.signup);
 app.post('/signup', login.signingup);
+app.get('/lostpassword', login.lostpassword);
 
 // File routes
 app.get('/product/:file', ensureAuthenticated, lab.showlab);

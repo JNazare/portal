@@ -74,6 +74,10 @@ exports.signup = function(req, res){
 	res.render('signup', { user: req.user, logged_in: req.logged_in});	
 }
 
+exports.lostpassword = function(req, res){
+	res.render('lostpassword');	
+}
+
 exports.signingup = function(req, res){
 	// console.log(req.body);
 	var userSchema = mongoose.model('User', userSchema);
