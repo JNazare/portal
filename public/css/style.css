@@ -72,7 +72,6 @@
   padding: 0px !important;
 }
 body {
-  background: #e9ebec;
   color: #34383c;
   border: none;
   font-family: 'Lato', sans-serif;
@@ -94,7 +93,6 @@ body:after {
 body:before {
   content: '';
   position: absolute;
-  background: #f3f3f3;
   width: 50%;
   height: 100%;
   top: 0;
@@ -147,13 +145,14 @@ h6 {
   position: relative;
   background: #f3f3f3;
   z-index: 1;
+  height: 100%;
 }
 #content:before {
   position: absolute;
   content: '';
   height: 100%;
   width: 1px;
-  border-left: 1px solid #dbdee0;
+  /*border-left: 1px solid #dbdee0;*/
   z-index: 1;
   top: 0px;
   left: -1px;
@@ -630,6 +629,7 @@ a.navbar-brand:hover {
   white-space: normal !important;
 }
 .dropdown-menu li {
+  background-color: #e9ebec;
   border-bottom: 1px solid #e9ebec;
 }
 .dropdown-menu li:last-child {
@@ -816,6 +816,7 @@ a#main-menu-min i:hover {
   width: 25%;
   background-color: #e9ebec;
   border-right: 1px solid #dbdee0;
+  height: 100%;
 }
 .sidebar-nav > ul {
   margin: -9px -25px;
@@ -844,9 +845,10 @@ a#main-menu-min i:hover {
   height: 47px;
   padding: 1px 0 0 0;
   color: #7c848d;
+  background-color: #dbdee0;
   border: none;
   border-bottom: 1px solid #dbdee0;
-  background: transparent;
+  /*background: transparent;*/
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
@@ -981,6 +983,7 @@ a#main-menu-min i:hover {
   border-radius: 0px;
 }
 #sidebar-left.minified {
+  height: 100%;
   width: 40px !important;
   margin-right: -40px;
 }
@@ -1324,8 +1327,8 @@ textarea {
   box-sizing: content-box;
 }
 .editor {
-  max-height: 250px;
-  height: 250px;
+  /*max-height: 250px;
+  height: 250px;*/
   background-color: white;
   border-collapse: separate;
   border: 1px solid #ced1d4 !important;
@@ -5897,10 +5900,11 @@ ul.friends-list li a {
     padding: 30px;
     margin: 0;
     height: 100%;
-    width: 75%;
+    width: 65%;
   }
   .container #sidebar-left {
-    width: 25%;
+    width: 35%;
+    height: 100%;
   }
   .container .breadcrumb {
     margin: -30px -30px 30px -30px;
@@ -5937,6 +5941,7 @@ ul.friends-list li a {
   }
   .container #sidebar-left {
     width: 14.422%;
+    height: 100%;
   }
   .container .breadcrumb {
     margin: -30px -30px 30px -30px;
@@ -5966,10 +5971,12 @@ ul.friends-list li a {
   }
   .container #content {
     padding: 30px;
+    height: 100%;
   }
   .container #sidebar-left {
     margin-left: 0px !important;
     width: 8.334% !important;
+    height: 100%;
   }
   .container .breadcrumb {
     margin: -30px -30px 30px -30px;
@@ -6055,6 +6062,7 @@ ul.friends-list li a {
   }
   #content {
     overflow: hidden;
+    height: 100%;
   }
   #content .breadcrumb {
     margin: -4px -5px 30px -5px;
@@ -6062,6 +6070,7 @@ ul.friends-list li a {
   #sidebar-left {
     min-height: 0px;
     padding: 0 !important;
+    height: 100%;
   }
   .sidebar-nav {
     border-bottom: 1px solid #dbdee0;
@@ -6139,6 +6148,8 @@ ul.friends-list li a {
   }
   #content {
     padding: 5px;
+    background-color: #f3f3f3;
+    height: 100%;
   }
   .quick-button,
   .quick-button-small {
@@ -6148,3 +6159,37 @@ ul.friends-list li a {
     display: none;
   }
 }
+
+body{
+  background-color: #f3f3f3;
+}
+
+.navbar>.container .navbar-brand {
+  margin-left: 35px;
+}
+
+a.navbar-brand {
+  width: 100%;
+  text-align: left;
+
+}
+
+.editor-preview{
+  background-color: #f3f3f3;
+}
+
+/*#sidebar-right{
+  background-color: #dbdee0;
+}*/
+#si_icon{
+  padding:5px;
+}
+
+.noformatbutton{
+  border: none;
+  background: none;
+}
+
+#login-button{
+  padding-top: 20px !important;
+};
