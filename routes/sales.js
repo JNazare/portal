@@ -1,11 +1,17 @@
 var helpers = require('./helpers.js');
 
+exports.show = function(req, res){
+	req.session.track = "sales";
+	helpers.get_tree(req, function(tree){ 
+	    res.render('index', {logged_in: true, tree: tree}); 
+	});
+}
+
 exports.showlab = function(req, res){
+	req.session.track = "sales";
 	helpers.get_tree(req, function(tree){ 
 		helpers.get_file(req, function(result){ 
-			res.render('lab', {
-				copy: req.session.copy,
-				user: req.user,
+			res.render('index', {
 				logged_in: true,
 				root: './public', 
 				contents: result.contents, 
@@ -21,14 +27,8 @@ exports.showlab = function(req, res){
 }
 
 exports.savelab = function(req, res){
+	req.session.track = "sales";
 	helpers.save_file(req, function(callback){
 		res.send("SAVED!");
 	});
-}
-
-exports.switch_branch = function(req, res){
-	var branch = req.url.split("/")[2];
-	req.user.city = branch;
-	req.session.copy = branch;
-	res.redirect("/");	
 }

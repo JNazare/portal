@@ -10,6 +10,11 @@ a.navbar-brand {
 	width: 20%;
 }
 
+/*.editor-wrapper{
+	max-width: 680px;
+	padding: 10px;
+}
+*/
 .editor-preview{
 	background-color: #f3f3f3;
 }
