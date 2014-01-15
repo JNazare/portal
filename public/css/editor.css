@@ -205,9 +205,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   display: none;
 }
 .CodeMirror-vscrollbar {
-  right: 0; top: 0;
+/*  right: 0; top: 0;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: scroll;*/
 }
 .CodeMirror-hscrollbar {
   bottom: 0; left: 0;
@@ -374,6 +374,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   background: #fcfcfc;
   border-color: #95a5a6;
 }
+
 .editor-toolbar a:before {
   line-height: 24px;
 }
@@ -424,6 +425,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   -ms-transition: left 0.2s ease;
   transition: left 0.2s ease;
 }
+
 .editor-preview-active {
   left: 0;
 }
