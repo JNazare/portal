@@ -10,6 +10,11 @@
     "jade": "*",
     "request": "*",
     "async": "*",
-    "passport-local": "*"
+    "passport": "*",
+    "passport-local": "*",
+    "mongodb": "*",
+    "bcrypt": "*",
+    "connect-flash": "*",
+    "mongoose": "*"
   }
 }
