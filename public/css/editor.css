@@ -86,10 +86,10 @@ you can use the generic selector below, but it's slower:
 	content: "\e011";
 }
 .icon-preview:before {
-	content: "\e601";
+	content: "\e600";
 }
 .icon-disk:before {
-  content: "\e600"
+  content: "\e601"
 }
 .icon-paste:before {
   content: "\e60b"

@@ -5900,10 +5900,10 @@ ul.friends-list li a {
     padding: 30px;
     margin: 0;
     height: 100%;
-    width: 65%;
+    width: 60%;
   }
   .container #sidebar-left {
-    width: 35%;
+    width: 40%;
     height: 100%;
   }
   .container .breadcrumb {
@@ -5937,10 +5937,10 @@ ul.friends-list li a {
     padding: 30px;
     margin: 0;
     height: 100%;
-    width: 85.578%;
+    width: 60%;
   }
   .container #sidebar-left {
-    width: 14.422%;
+    width: 40%;
     height: 100%;
   }
   .container .breadcrumb {
@@ -6042,6 +6042,7 @@ ul.friends-list li a {
     background: transparent !important;
     text-shadow: none !important;
     border: none !important;
+    display: none;
   }
   .navbar-toggle .icon-bar {
     background: white;
@@ -6063,6 +6064,7 @@ ul.friends-list li a {
   #content {
     overflow: hidden;
     height: 100%;
+    width: 100%;
   }
   #content .breadcrumb {
     margin: -4px -5px 30px -5px;
@@ -6071,6 +6073,7 @@ ul.friends-list li a {
     min-height: 0px;
     padding: 0 !important;
     height: 100%;
+    width: 0%;
   }
   .sidebar-nav {
     border-bottom: 1px solid #dbdee0;
@@ -6120,7 +6123,8 @@ ul.friends-list li a {
     padding: 0px;
   }
   #content {
-    padding: 5px;
+    margin-top: -670px;
+    margin-left: 20px;
   }
 }
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers)
