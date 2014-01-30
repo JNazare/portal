@@ -1,0 +1,87 @@
+doctype html 5
+html(lang='en')
+head
+		meta(charset='utf-8')
+		meta(http-equiv='X-UA-Compatible', content='IE=edge')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title Startup Institute Curriculum
+		link(href='/css/bootstrap3.css', rel='stylesheet')
+		link(href='/css/portal-styles.css', rel='stylesheet')
+	body
+		#wrap
+			.navbar.navbar-default.navbar-fixed-top(role='navigation')
+				.container
+					.navbar-header
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='#') Startup Institute Curriculum
+					.collapse.navbar-collapse
+						ul.nav.navbar-nav.navbar-right
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									span.glyphicon.glyphicon-pencil
+									| &nbsp;Branch
+									//- b.caret
+								ul.dropdown-menu
+									li
+										a(href='#') Boston
+									li
+										a(href='#') New York
+									li
+										a(href='#') Chicago
+									li
+										a(href='#') Berkin
+									li
+										a(href='#') London
+									li
+										a(href='#') 
+											strong Master
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									span.glyphicon.glyphicon-cog
+									| &nbsp;Settings
+									//- b.caret
+								ul.dropdown-menu
+									li
+										a(href='#') Account Settings
+									li 
+										a(href='#') Logout
+									li.divider
+									li.dropdown-header Admin Tools
+									li
+										a(href='#') Organize Labs
+			.container
+				.col-md-4
+					.list-group
+						//- a.list-group-item.active(href='#')
+						//- 		| Cras justo odio
+						a.list-group-item(href='#') Development
+						a.list-group-item(href='#') Product
+						a.list-group-item(href='#') Sales
+						a.list-group-item(href='#') Marketing
+				.col-md-8
+					.textarea
+				//- .page-header
+				//- 	h1 Sticky footer with fixed navbar
+				//- p.lead
+				//- 	| Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within
+				//- 	code #wrap
+				//- 	| with
+				//- 	code padding-top: 60px;
+				//- 	| on the
+				//- 	code .container
+				//- 	| .
+				//- p
+				//- 	| Back to
+				//- 	a(href='../sticky-footer') the default sticky footer
+				//- 	| minus the navbar.
+		#footer
+			.container
+				p.text-muted Place sticky footer content here.
+		script(src='https://code.jquery.com/jquery-1.10.2.min.js')
+		script(src='/js/bootstrap3.min.js')

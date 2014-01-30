@@ -25,7 +25,7 @@ exports.get_oauth_token = function(req, res){
     	helpers.get_tree(req, function(tree){ 
 			helpers.get_user(req, function(user_info){
 				req.session.user_info = user_info;
-				res.render('home', {
+				res.render('layout2', {
 					copy: req.session.copy,
 					user: req.user,
     				tree: tree,
@@ -55,7 +55,7 @@ exports.get_oauth_token = function(req, res){
 	    			helpers.get_user(req, function(user_info){
 	    				req.session.user_info = user_info;
 	    				console.log(user_info);
-	    				res.render('home', {
+	    				res.render('layout2', {
 	    					copy: req.user.city,
 	    					user: req.user,
 		    				tree: tree,

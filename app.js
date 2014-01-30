@@ -58,11 +58,11 @@ var user = new User({
     first_name: "Juliana",
     last_name: "Nazare"
   },
-  username: "juliana@si.com",
+  username: "juliana@startupinstitute.com",
   password: "secret",
-  access_token: "S1student",
-  role: "student",
-  city: "boston"
+  access_token: "S1admin",
+  role: "admin",
+  city: "master"
 });
 
 user.save(function(err) {
